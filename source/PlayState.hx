@@ -2364,6 +2364,7 @@ class PlayState extends MusicBeatState
 			opponentVocals = new FlxSound().loadEmbedded(Paths.voices-oponente(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
+			opponentVocals = new FlxSound();
 
 		vocals.pitch = playbackRate;
 		opponentVocals.pitch = playbackRate;
