@@ -218,14 +218,14 @@ class Paths
 		return file;
 	}
 
-	inline static public function PlayerVoices(song:String):Any
+	inline static public function vocals(song:String):Any
 	{
 		#if html5
 		return 'songs:assets/songs/${formatToSongPath(song)}/Voices-player.$SOUND_EXT';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices-player';
-		var PlayerVoices = returnSound('songs', songKey);
-		return PlayerVoices;
+		var vocals = returnSound('songs', songKey);
+		return vocals;
 		#end
 	}
 	
