@@ -218,25 +218,25 @@ class Paths
 		return file;
 	}
 
-	inline static public function voices-player(song:String):Any
+	inline static public function PlayerVoices(song:String):Any
 	{
 		#if html5
 		return 'songs:assets/songs/${formatToSongPath(song)}/Voices-player.$SOUND_EXT';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices-player';
 		var voices = returnSound('songs', songKey);
-		return voices-player;
+		return PlayerVoices;
 		#end
 	}
 	
-	inline static public function voices-oponente(song:String):Any
+	inline static public function OppVoices(song:String):Any
 	{
 		#if html5
 		return 'songs:assets/songs/${formatToSongPath(song)}/Voices-oponente.$SOUND_EXT';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices-oponente';
 		var voices-oponente = returnSound('songs', songKey);
-		return voices-oponente;
+		return OppVoices;
 		#end
 	}
 
