@@ -224,7 +224,7 @@ class Paths
 		return 'songs:assets/songs/${formatToSongPath(song)}/Voices-player.$SOUND_EXT';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices-player';
-		var voices = returnSound('songs', songKey);
+		var PlayerVoices = returnSound('songs', songKey);
 		return PlayerVoices;
 		#end
 	}
@@ -235,7 +235,7 @@ class Paths
 		return 'songs:assets/songs/${formatToSongPath(song)}/Voices-oponente.$SOUND_EXT';
 		#else
 		var songKey:String = '${formatToSongPath(song)}/Voices-oponente';
-		var voices-oponente = returnSound('songs', songKey);
+		var OppVoices = returnSound('songs', songKey);
 		return OppVoices;
 		#end
 	}
