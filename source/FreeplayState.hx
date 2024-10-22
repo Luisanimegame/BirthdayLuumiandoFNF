@@ -249,6 +249,7 @@ class FreeplayState extends MusicBeatState
 
 	var instPlaying:Int = -1;
 	public static var vocals:FlxSound = null;
+	public static var opponentVocals:FlxSound = null;
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
@@ -356,15 +357,21 @@ class FreeplayState extends MusicBeatState
 				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
 				if (PlayState.SONG.needsVoices)
 					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
+					opponentVocals = new FlxSound().loadEmbedded(Paths.OppVoices(PlayState.SONG.song));
 				else
 					vocals = new FlxSound();
 
 				FlxG.sound.list.add(vocals);
+				FlxG.sound.list.add(opponentVocals);
 				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
 				vocals.play();
 				vocals.persist = true;
 				vocals.looped = true;
 				vocals.volume = 0.7;
+				opponentVocals.play();
+				opponentVocals.persist = true;
+				opponentVocals.looped = true;
+				opponentVocals.volume = 0.7;
 				instPlaying = curSelected;
 				#end
 			}
@@ -421,8 +428,11 @@ class FreeplayState extends MusicBeatState
 		if(vocals != null) {
 			vocals.stop();
 			vocals.destroy();
+			opponentVocals.stop();
+			opponentVocals.destroy();
 		}
 		vocals = null;
+		opponentVocals = null;
 	}
 
 	function changeDiff(change:Int = 0)

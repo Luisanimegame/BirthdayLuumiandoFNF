@@ -875,7 +875,7 @@ class PlayState extends MusicBeatState
 
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
-		var daScripts:Array<String> = ['script', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		var daScripts:Array<String> = ['hud', 'Ending', 'Follow', 'script3', 'script4']; // I don't think I need to explain this 
 		for (script in daScripts) {
 			var scriptPath:String = Paths.getPreloadPath('scripts/' + script + '.lua');
 			if (OpenFlAssets.exists(scriptPath))
@@ -1184,7 +1184,7 @@ class PlayState extends MusicBeatState
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
-		var daScripts:Array<String> = ['script', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		var daScripts:Array<String> = ['cutcene', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
 		for (script in daScripts) {
 		var scriptPath:String = Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/' + script + '.lua');
 			if (OpenFlAssets.exists(scriptPath))
@@ -2362,6 +2362,9 @@ class PlayState extends MusicBeatState
 		if (SONG.needsVoices)
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 			opponentVocals = new FlxSound().loadEmbedded(Paths.OppVoices(PlayState.SONG.song));
+		else
+			vocals = new FlxSound();
+			opponentVocals = new FlxSound();
 		
 		vocals.pitch = playbackRate;
 		opponentVocals.pitch = playbackRate;
