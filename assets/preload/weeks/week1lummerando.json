@@ -1,0 +1,26 @@
+{
+  "songs": [
+    [
+      "luumiando",
+      "oneluumi",
+      [
+        195,
+		155,
+		255
+      ]
+    ]
+  ],
+  "weekCharacters": [
+    "",
+    "",
+    ""
+  ],
+  "weekBackground": "",
+  "storyName": "Vs Luumi",
+  "weekBefore": "tutorial",
+  "difficulties": "Hard",
+  "weekName": "Week Oneshot",
+  "startUnlocked": true,
+  "hideStoryMode": false,
+  "hideFreeplay": false
+}
