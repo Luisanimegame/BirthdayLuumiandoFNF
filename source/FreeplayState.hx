@@ -358,9 +358,7 @@ class FreeplayState extends MusicBeatState
 				if (PlayState.SONG.needsVoices)
 					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 					opponentVocals = new FlxSound().loadEmbedded(Paths.OppVoices(PlayState.SONG.song));
-				else
-					vocals = new FlxSound();
-
+				
 				FlxG.sound.list.add(vocals);
 				FlxG.sound.list.add(opponentVocals);
 				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
