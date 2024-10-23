@@ -45,7 +45,7 @@ class FreeplayState extends MusicBeatState
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	private var iconArray:Array<HealthIcon> = [];
+	var icon:FlxSprite;
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -105,7 +105,7 @@ class FreeplayState extends MusicBeatState
 				addSong(songArray[0], 0, songArray[1], Std.parseInt(songArray[2]));
 			}
 		}*/
-
+		
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
@@ -117,7 +117,12 @@ class FreeplayState extends MusicBeatState
 		checkerboard.y = -100;
 		checkerboard.antialiasing = false;
 		add(checkerboard);
-
+		
+		icon = new FlxSprite().loadGraphic(Paths.image('anothermenu/draw/' + songs[i].songCharacter));
+		icon.antialiasing = ClientPrefs.globalAntialiasing;
+		add(icon);
+		icon.screenCenter();
+		
 		menubars_top = new FlxTiledSprite(Paths.image('menubars'), FlxG.width * 3, FlxG.width * 3, true, false);
 		menubars_top.scrollFactor.set(0, 0);
 		menubars_top.antialiasing = false;
@@ -148,12 +153,6 @@ class FreeplayState extends MusicBeatState
 			songText.snapToPosition();
 
 			Paths.currentModDirectory = songs[i].folder;
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
-			icon.sprTracker = songText;
-
-			// using a FlxGroup is too much fuss!
-			iconArray.push(icon);
-			add(icon);
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
@@ -490,13 +489,6 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		var bullShit:Int = 0;
-
-		for (i in 0...iconArray.length)
-		{
-			iconArray[i].alpha = 0.6;
-		}
-
-		iconArray[curSelected].alpha = 1;
 
 		for (item in grpSongs.members)
 		{
