@@ -36,6 +36,7 @@ addLuaSprite('quack', true)
 
 makeLuaSprite('iconponente', 'hudd/ICONOPONENTBASE')
 setObjectCamera('iconponente', 'hud')
+setObjectOrder('iconponente', getObjectOrder('timeBar') + 1)
 addLuaSprite('iconponente', false)
 
 setProperty('healthBar.scale.x',0.65)
@@ -53,8 +54,6 @@ setProperty('oponenteIcon.flipX', false)
 
 setTextFont('scoreTxt', 'Luuminewfont-Regular.ttf')
 setTextFont('botplayTxt', 'Luuminewfont-Regular.ttf')
-
-setObjectOrder('timeBar', 8)
 end
 end
 
@@ -124,6 +123,7 @@ makeAnimatedLuaSprite('oponenteIcon',nil, 0, 585)
 loadGraphic('oponenteIcon','icons/icon-'..mal, frame)
 addAnimation('oponenteIcon','icons/icon-'..mal, {0, 1}, 0, true)
 setObjectCamera('oponenteIcon', 'hud')
+setObjectOrder('oponenteIcon', getObjectOrder('timeBar') + 2)
 addLuaSprite('oponenteIcon', false)
 
 setProperty('oponenteIcon.scale.x', getProperty('iconP2.scale.x'))
