@@ -43,7 +43,6 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
-	var Luumiando:FlxTypedGroup<FlxSprite>;
 	var shaderico:FlxSprite;
 	var pedropedropedro:FlxSprite;
 	var camFollow:FlxObject;
@@ -105,25 +104,12 @@ class MainMenuState extends MusicBeatState
 		checkerboard.antialiasing = false;
 		add(checkerboard);
 		
-		var Luumiando:FlxSprite = new FlxSprite(-80);
-		Luumiando.frames = Paths.getSparrowAtlas('anothermenu/LummerOneshot');
-		Luumiando.animation.addByPrefix('idle', "Lumando", 24);
-		Luumiando.animation.play('idle');
-		Luumiando.scrollFactor.set(0, yScroll);
-		Luumiando.setGraphicSize(Std.int(Luumiando.width * 1.175));
-		Luumiando.updateHitbox();
-		Luumiando.screenCenter();
-		Luumiando.add(Luumiando);
-
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 		add(camFollowPos);
 		
 		// magenta.scrollFactor.set();
-		
-		Luumiando = new FlxTypedGroup<FlxSprite>();
-		add(Luumiando);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -135,6 +121,17 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
+		var Luumiando:FlxSprite;
+        Luumiando = new FlxSprite(-80);
+        Luumiando.frames = Paths.getSparrowAtlas('anothermenu/LummerOneshot');
+		Luumiando.animation.addByPrefix('idle', "Lumando", 24);
+		Luumiando.animation.play('idle');
+		Luumiando.scrollFactor.set(0, yScroll);
+		Luumiando.setGraphicSize(Std.int(Luumiando.width * 1.175));
+		Luumiando.updateHitbox();
+		Luumiando.screenCenter();
+        add(Luumiando);
+        
 			var offset:Float = 0 - (Math.max(optionShit.length, 0) - 0) * 0;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 0)  + offset);
 			menuItem.scale.x = scale;
