@@ -45,7 +45,7 @@ class FreeplayState extends MusicBeatState
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	var icon:FlxSprite;
+	private var iconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -118,8 +118,9 @@ class FreeplayState extends MusicBeatState
 		checkerboard.antialiasing = false;
 		add(checkerboard);
 		
-		icon = new FlxSprite().loadGraphic(Paths.image('anothermenu/draw/' + songs[i].songCharacter));
+		var icon:HealthIcon = new HealthIcon('anothermenu/draw' + songs[i].songCharacter);
 		icon.antialiasing = ClientPrefs.globalAntialiasing;
+		iconArray.push(icon);
 		add(icon);
 		icon.screenCenter();
 		
@@ -490,12 +491,12 @@ class FreeplayState extends MusicBeatState
 
 		var bullShit:Int = 0;
 		
-		for (i in 0...icon.length)
+		for (i in 0...iconArray.length)
 		{
-			icon[i].alpha = 0;
+			iconArray[i].alpha = 0;
 		}
 		
-		icon[curSelected].alpha = 1;
+		iconArray[curSelected].alpha = 1;
 
 		for (item in grpSongs.members)
 		{
