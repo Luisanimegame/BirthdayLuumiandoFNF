@@ -118,6 +118,7 @@ class FreeplayState extends MusicBeatState
 		checkerboard.antialiasing = false;
 		add(checkerboard);
 		
+		Paths.currentModDirectory = songs[i].folder;
 		var icon:HealthIcon = new HealthIcon('anothermenu/draw' + songs[i].songCharacter);
 		icon.antialiasing = ClientPrefs.globalAntialiasing;
 		iconArray.push(icon);
@@ -152,8 +153,6 @@ class FreeplayState extends MusicBeatState
 				songText.scaleX = maxWidth / songText.width;
 			}
 			songText.snapToPosition();
-
-			Paths.currentModDirectory = songs[i].folder;
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
