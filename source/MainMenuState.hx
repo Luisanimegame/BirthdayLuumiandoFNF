@@ -105,7 +105,7 @@ class MainMenuState extends MusicBeatState
 		checkerboard.antialiasing = false;
 		add(checkerboard);
 		
-		var Luumiando:FlxSprite = new FlxSprite(0, (i * 0)  + offset);
+		var Luumiando:FlxSprite = new FlxSprite(-80);
 		Luumiando.frames = Paths.getSparrowAtlas('anothermenu/LummerOneshot');
 		Luumiando.animation.addByPrefix('idle', "Lumando", 24);
 		Luumiando.animation.play('idle');
@@ -114,7 +114,6 @@ class MainMenuState extends MusicBeatState
 		Luumiando.updateHitbox();
 		Luumiando.screenCenter();
 		Luumiando.add(Luumiando);
-			
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
