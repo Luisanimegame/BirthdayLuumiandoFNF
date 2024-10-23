@@ -120,6 +120,7 @@ class FreeplayState extends MusicBeatState
 		
 		icon = new FlxSprite().loadGraphic(Paths.image('anothermenu/draw/' + songs[i].songCharacter));
 		icon.antialiasing = ClientPrefs.globalAntialiasing;
+		iconArray.push(icon);
 		add(icon);
 		icon.screenCenter();
 		
@@ -489,6 +490,13 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		var bullShit:Int = 0;
+		
+		for (i in 0...iconArray.length)
+		{
+			iconArray[i].alpha = 0;
+		}
+		
+		iconArray[curSelected].alpha = 1;
 
 		for (item in grpSongs.members)
 		{
