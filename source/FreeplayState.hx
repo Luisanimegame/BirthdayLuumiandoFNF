@@ -117,19 +117,6 @@ class FreeplayState extends MusicBeatState
 		checkerboard.y = -100;
 		checkerboard.antialiasing = false;
 		add(checkerboard);
-
-		grpSongs = new FlxTypedGroup<Alphabet>();
-		add(grpSongs);
-
-		for (i in 0...songs.length)
-		{
-		
-		Paths.currentModDirectory = songs[i].folder;
-		var icon:HealthIcon = new HealthIcon('anothermenu/draw' + songs[i].songCharacter);
-		icon.antialiasing = ClientPrefs.globalAntialiasing;
-		iconArray.push(icon);
-		add(icon);
-		icon.screenCenter();
 		
 		menubars_top = new FlxTiledSprite(Paths.image('menubars'), FlxG.width * 3, FlxG.width * 3, true, false);
 		menubars_top.scrollFactor.set(0, 0);
@@ -141,9 +128,13 @@ class FreeplayState extends MusicBeatState
 		menubars_bottom.y = FlxG.height - 130;
 		menubars_bottom.antialiasing = false;
 		add(menubars_bottom);
-		
+
+		grpSongs = new FlxTypedGroup<Alphabet>();
+		add(grpSongs);
+
+		for (i in 0...songs.length)
+		{
 			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
-			songText.screenCenter(X);
 			songText.isMenuItem = true;
 			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
@@ -154,10 +145,18 @@ class FreeplayState extends MusicBeatState
 				songText.scaleX = maxWidth / songText.width;
 			}
 			songText.snapToPosition();
+			
+			Paths.currentModDirectory = songs[i].folder;
+			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			icon.sprTracker = songText;
+
+			// using a FlxGroup is too much fuss!
+			iconArray.push(icon);
+			add(icon);
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -212,15 +211,15 @@ class FreeplayState extends MusicBeatState
 
 		#if PRELOAD_ALL
 			#if mobile
-			var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+			var leText:String = "Press C to open the Gameplay Changers Menu.";
 			var size:Int = 16;
 			#else
-			var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+			var leText:String = "Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
 			var size:Int = 16;
 			#end
 		#else
 			#if mobile
-			var leText:String = "Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+			var leText:String = "Press C to open the Gameplay Changers Menu.";
 			var size:Int = 18;
 			#else
 			var leText:String = "Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
@@ -496,7 +495,7 @@ class FreeplayState extends MusicBeatState
 			iconArray[i].alpha = 0;
 		}
 		
-		iconArray[curSelected].alpha = 1;
+		iconArray[curSelected].alpha = 0.35;
 
 		for (item in grpSongs.members)
 		{
