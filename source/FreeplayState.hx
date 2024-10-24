@@ -117,6 +117,12 @@ class FreeplayState extends MusicBeatState
 		checkerboard.y = -100;
 		checkerboard.antialiasing = false;
 		add(checkerboard);
+
+		grpSongs = new FlxTypedGroup<Alphabet>();
+		add(grpSongs);
+
+		for (i in 0...songs.length)
+		{
 		
 		Paths.currentModDirectory = songs[i].folder;
 		var icon:HealthIcon = new HealthIcon('anothermenu/draw' + songs[i].songCharacter);
@@ -135,12 +141,7 @@ class FreeplayState extends MusicBeatState
 		menubars_bottom.y = FlxG.height - 130;
 		menubars_bottom.antialiasing = false;
 		add(menubars_bottom);
-
-		grpSongs = new FlxTypedGroup<Alphabet>();
-		add(grpSongs);
-
-		for (i in 0...songs.length)
-		{
+		
 			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
 			songText.screenCenter(X);
 			songText.isMenuItem = true;
