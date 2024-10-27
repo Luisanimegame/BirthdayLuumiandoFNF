@@ -8,6 +8,15 @@
 		155,
 		255
       ]
+    ],
+    [
+      "theoruz",
+      "LakwrNea",
+      [
+        157,
+		49,
+		48
+      ]
     ]
   ],
   "weekCharacters": [
@@ -21,6 +30,6 @@
   "difficulties": "Hard",
   "weekName": "Week Oneshot",
   "startUnlocked": true,
-  "hideStoryMode": false,
+  "hideStoryMode": true,
   "hideFreeplay": false
 }
