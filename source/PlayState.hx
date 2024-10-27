@@ -875,7 +875,7 @@ class PlayState extends MusicBeatState
 
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
-		var daScripts:Array<String> = ['hud', 'Ending', 'Follow', 'script3', 'script4']; // I don't think I need to explain this 
+		var daScripts:Array<String> = ['hud', 'Ending', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
 		for (script in daScripts) {
 			var scriptPath:String = Paths.getPreloadPath('scripts/' + script + '.lua');
 			if (OpenFlAssets.exists(scriptPath))
@@ -1184,7 +1184,7 @@ class PlayState extends MusicBeatState
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
-		var daScripts:Array<String> = ['cutcene', 'Zoom Girlfriend', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		var daScripts:Array<String> = ['cutcene', 'Zoom Girlfriend', 'camFollow', 'Follow', 'script4']; // I don't think I need to explain this 
 		for (script in daScripts) {
 		var scriptPath:String = Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/' + script + '.lua');
 			if (OpenFlAssets.exists(scriptPath))
