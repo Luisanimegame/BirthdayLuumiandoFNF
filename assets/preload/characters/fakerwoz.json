@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left0"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down0"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up0"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/FAKEROST",
+	"position": [
+		-40,
+		110
+	],
+	"healthicon": "LakwrNea",
+	"flip_x": false,
+	"healthbar_colors": [
+		157,
+		49,
+		48
+	],
+	"camera_position": [
+		-50,
+		0
+	],
+	"sing_duration": 2.3,
+	"scale": 1.3
+}
