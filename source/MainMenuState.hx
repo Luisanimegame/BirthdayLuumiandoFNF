@@ -279,7 +279,7 @@ class MainMenuState extends MusicBeatState
 								{
 									case 'PoggersMode':
 										selectedSomethin = true;
-				                                                FlxG.sound.play(Paths.sound('cancelMenu'))
+				                                                FlxG.sound.play(Paths.sound('cancelMenu'));
 									case 'FreeToPlay':
 										MusicBeatState.switchState(new FreeplayState());
 									case 'Awardas':
