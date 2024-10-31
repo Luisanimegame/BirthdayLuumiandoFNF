@@ -278,7 +278,8 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'PoggersMode':
-										MusicBeatState.switchState(new StoryMenuState());
+										selectedSomethin = true;
+				                                                FlxG.sound.play(Paths.sound('cancelMenu'))
 									case 'FreeToPlay':
 										MusicBeatState.switchState(new FreeplayState());
 									case 'Awardas':
