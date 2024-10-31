@@ -18,9 +18,12 @@ addLuaSprite('cinemadeez2', false)
 setProperty('cinemadeez1.y', 800)
 setProperty('cinemadeez2.y', -200)
 
-makeLuaSprite('nothing', 'characters/nada')
-setObjectCamera('nothing', 'hud')
-addLuaSprite('nothing', true)
+if songName == 'vlighter' then
+makeLuaSprite('blackScreen', 'barra', 0, 0)
+scaleObject('blackScreen', 1, 1)
+addLuaSprite('blackScreen', false)
+setObjectCamera('blackScreen', 'hud')
+end
 
 makeLuaSprite('Health', 'hudd/barv3')
 setObjectCamera('Health', 'hud')
