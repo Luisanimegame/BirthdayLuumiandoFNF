@@ -278,8 +278,14 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'PoggersMode':
-										selectedSomethin = false;
-				                                                FlxG.sound.play(Paths.sound('cancelMenu'));
+										PlayState.storyPlaylist = ['luumiando'];
+										PlayState.isStoryMode = true;
+
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-hard', PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
 									case 'FreeToPlay':
 										MusicBeatState.switchState(new FreeplayState());
 									case 'Awardas':
